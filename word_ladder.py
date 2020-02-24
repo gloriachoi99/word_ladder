@@ -49,10 +49,9 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     if start_word == end_word:
         return [end_word]
 
-
     while len(q) > 0:
         top = q.popleft()
-        for word in listofwords:
+        for word in set(listofwords):
            if _adjacent(word, top[-1]):
                if word == end_word:
                    top.append(word)
@@ -62,6 +61,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                q.append(stackcopy)
                listofwords.remove(word)
     return None
+    
             
 def verify_word_ladder(ladder):
     '''
